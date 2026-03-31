@@ -1,3 +1,42 @@
+// issuesLevel Show
+const createElement = (arr) => {
+    const htmlElements = arr.map(el => {
+        let styles = "";
+        let icon = "";
+
+        if (el === "bug") {
+            styles = "bg-red-100 text-[#00A96E] font-medium uppercase";
+            icon = `<img src="./assets/BugDroid.png" class="w-4 h-4 inline-block">`;
+        } else if (el === "help wanted") {
+            styles = "bg-[#FDE68A] text-[#D97706] font-medium uppercase";
+            icon = `<img src="./assets/Vector.png" class="w-4 h-4 inline-block">`;
+        } else if (el === "enhancement") {
+            styles = "bg-green-100 text-green-600 font-medium uppercase";
+            icon = `<img src="./assets/enhancement.png" class="w-4 h-4 inline-block">`;
+        }
+        else if (el === "good first issue") {
+            styles = "bg-[#C1C72650] text-black font-medium uppercase";
+        }
+        else if (el === "documentation") {
+            styles = "bg-[#7B14C420] text-green-600 font-medium uppercase";
+            icon= `<i class="fa-regular fa-copy"></i>`;
+
+        } else {
+            styles = "bg-gray-100 text-gray-600";
+            icon = `<i class="fa-solid fa-house"></i>`;
+        }
+
+        return `<span class="px-2 py-1 rounded-full text-[12px] font-medium inline-flex items-center gap-1 ${styles}">
+              ${icon} ${el}
+            </span>`;
+    });
+
+    return htmlElements.join(" ");
+};
+
+
+
+
 // Active Button work now
 
 function activeButton(activeId) {
@@ -33,7 +72,7 @@ async function loadIssues() {
     issues.data.forEach(issue => {
 
         const iconStatus = issue.status === "closed" ? "./assets/ClosedStatus.png" : "./assets/OpenStatus.png";
-        const borderColor = issue.status === "closed" ? "#A855F7"  : "#00A96E";
+        const borderColor = issue.status === "closed" ? "#A855F7" : "#00A96E";
 
         const div = document.createElement("div");
         div.innerHTML = `
@@ -46,9 +85,7 @@ async function loadIssues() {
 
             <h2 class="font-semibold text-[14px] text-[#1F2937]">${issue.title}</h2>
             <p class="text-[#64748B] text-[12px] font-extralight">${issue.description}</p>
-
-
-
+            <div>${createElement(issue.labels)}</div>
             <hr class="text-gray-300">
             <p class="text-[#64748B] text-[12px] font-[400]">#1by ${issue.author}</p>
             <p class="text-[#64748B] text-[12px] font-[400]">${formatDate(issue.createdAt)}</p>
