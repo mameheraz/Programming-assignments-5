@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind And DaisyUI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Fontawesome Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-[#F8FAFC]">
+
+    <header class=" p-5 border-b-2 border-[#E9E9E9] flex justify-between ">
+        <div class=" w-11/12 mx-auto logo flex items-center gap-2">
+            <img src="./assets/github-logo.png" class="w-[3%]" alt="">
+            <h2 class="font-semibold text-[#1F2937] text-[24px]">GitHub Issues Tracker</h2>
+        </div>
+
+        <div class="seach-bar">
+            <div class="join flex gap-2">
+                <div>
+                    <label class="input validator join-item">
+                        <i class="fa-brands fa-sistrix"></i>
+                        <input class="" type="email" placeholder="Search issues..." required />
+                    </label>
+                </div>
+                <button class="btn bg-[#4A00FF] text-white join-item rounded-sm"><i class="fa-solid fa-plus"></i>New
+                    Issue</button>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- issues section -->
+    <section class="w-9/12 mx-auto pt-10 pb-5 ">
+        <div class="bg-white shadow-md px-5 py-2 rounded-md">
+            <button onclick="loadIssues()" class="btn bg-[#4A00FF] text-white w-[100px]">All</button>
+            <button class="btn outline-gray-100 w-[100px]">Open</button>
+            <button class="btn outline-gray-100 w-100px">Closed</button>
+        </div>
+    </section>
+
+
+
+    <!-- Container -->
+
+    <section class="w-9/12 mx-auto">
+        <div class="bg-white shadow-md px-5 py-2 rounded-md flex items-center justify-between">
+            <div class="flex items-center gap-3 ">
+                <img src="./assets/Aperture.png" alt="">
+                <div class="right">
+                    <h2 class="text-[#1F2937] font-semibold text-[20px]">50 Issues</h2>
+                    <p class="font-extralight text-4 text-[#64748B]">Track and manage your project issues</p>
+                </div>
+            </div>
+
+            <div class="right flex items-center gap-2">
+                <img src="./assets/open.png" alt="">
+                <img src="./assets/close.png" alt="">
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="issues-container" class="bg-white shadow-sm p-10 w-9/12 mx-auto grid grid-cols-4 gap-3">
+        
+    </section>
+
+
+    <script src="./login.js"></script>
+</body>
+</html>
