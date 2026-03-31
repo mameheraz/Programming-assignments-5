@@ -47,7 +47,7 @@ async function loadIssues() {
             <h2 class="font-semibold text-[14px] text-[#1F2937]">${issue.title}</h2>
             <p class="text-[#64748B] text-[12px] font-extralight">${issue.description}</p>
 
-            
+
 
             <hr class="text-gray-300">
             <p class="text-[#64748B] text-[12px] font-[400]">#1by ${issue.author}</p>
