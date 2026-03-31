@@ -50,9 +50,12 @@
     <!-- issues section -->
     <section class="w-9/12 mx-auto pt-10 pb-5 ">
         <div class="bg-white shadow-md px-5 py-2 rounded-md">
-            <button onclick="loadIssues()" class="btn bg-[#4A00FF] text-white w-[100px]">All</button>
-            <button class="btn outline-gray-100 w-[100px]">Open</button>
-            <button class="btn outline-gray-100 w-100px">Closed</button>
+            <button id="all-btn" onclick="loadIssues(); activeButton('all-btn')"
+                class="btn text-black hover:bg-[#4A00FF] hover:text-white w-[100px] active-btn">All</button>
+            <button id="open-btn" onclick="openIssues(); activeButton('open-btn')"
+                class="btn outline-gray-100 w-[100px] text-black hover:bg-[#4A00FF] hover:text-white ">Open</button>
+            <button id="close-btn" onclick="ClosedIssues(); activeButton('close-btn')"
+                class="btn outline-gray-100 w-100px text-black hover:bg-[#4A00FF] hover:text-white ">Closed</button>
         </div>
     </section>
 
@@ -65,7 +68,7 @@
             <div class="flex items-center gap-3 ">
                 <img src="./assets/Aperture.png" alt="">
                 <div class="right">
-                    <h2 class="text-[#1F2937] font-semibold text-[20px]">50 Issues</h2>
+                    <h2 id="issues-counter" class="text-[#1F2937] font-semibold text-[20px]">50 Issues</h2>
                     <p class="font-extralight text-4 text-[#64748B]">Track and manage your project issues</p>
                 </div>
             </div>
@@ -80,10 +83,11 @@
 
 
     <section id="issues-container" class="bg-white shadow-sm p-10 w-9/12 mx-auto grid grid-cols-4 gap-3">
-        
+ 
     </section>
 
 
-    <script src="./login.js"></script>
+    <script src="./mainpage.js"></script>
 </body>
+
 </html>
