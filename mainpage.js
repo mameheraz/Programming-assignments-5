@@ -19,7 +19,7 @@ const createElement = (arr) => {
         }
         else if (el === "documentation") {
             styles = "bg-[#7B14C420] text-green-600 font-medium uppercase";
-            icon= `<i class="fa-regular fa-copy"></i>`;
+            icon = `<i class="fa-regular fa-copy"></i>`;
 
         } else {
             styles = "bg-gray-100 text-gray-600";
@@ -59,6 +59,44 @@ function formatDate(dateString) {
 
 // -------------------------------------------------------------------------------------
 
+// Issues show on Modal
+const loadIssuesDetail = async (id) => {
+    const url = `https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`;
+    const response = await fetch(url);
+    const details = await response.json();
+    displayIssuesDetails(details.data);
+}
+const displayIssuesDetails = (issue) => {
+    const statusBgColor = issue.status === "closed" ? "#A855F7" : "#00A96E";
+    const issuePriority = issue.priority === "high" ? "#EF4444" : issue.priority === "medium" ? "#ffd21a" : "#4d5365";
+    const issueModal = document.getElementById("modalContainer");
+    document.getElementById("issue_modal").showModal();
+    issueModal.innerHTML = `
+          <div class="space-y-4">
+                <h2 class="font-bold text-[24px] text-[#1F2937]">${issue.title}</h2>
+                <div class="flex gap-2 justify-stretch items-center">
+                    <button class="btn text-white h-5 rounded-full text-[12px] font-medium" style="background-color:${statusBgColor}">${issue.status}</button>
+                    <p class="text-[#64748B] text-[12px] font-extralight flex items-center gap-1"><i class="fa-solid fa-circle" style="font-size: 5px;"></i>Opened by ${issue.assignee}</p>
+                    <p class="text-[#64748B] text-[12px] font-extralight flex items-center gap-1"><i class="fa-solid fa-circle" style="font-size: 5px;"></i>${formatDate(issue.createdAt)}</p>  
+                </div>
+                <div>${createElement(issue.labels)}</div>
+                <p class="text-[#64748B] text-[12px] font-extralight">${issue.description}</p>
+                <div class="bg-[#F8FAFC] rounded-sm px-5 py-3 flex justify-between">
+                    <div>
+                        <p class="font-[400] text-[16px] text-[#64748B]">Assignee:</p>
+                        <h2 class="font-semibold text-[16px] text-[#1F2937]">${issue.assignee}</h2>
+                    </div>
+                    <div>
+                        <p class="font-[400] text-[16px] text-[#64748B]">Priority:</p>
+                        <button class="btn bg-[#00A96E] text-white h-5 rounded-full text-[12px] font-medium uppercase" style="background-color:${issuePriority}">${issue.priority}</button>
+                    </div>
+                </div>
+            </div>
+    `;
+
+}
+
+
 // All Issues container started here
 
 async function loadIssues() {
@@ -76,8 +114,7 @@ async function loadIssues() {
 
         const div = document.createElement("div");
         div.innerHTML = `
-
-        <div onclick="my_modal_5.showModal()" class="border-t-4 rounded-sm p-3 bg-white shadow-sm space-y-3 min-h-60" style="border-color:${borderColor}">
+        <div onclick="loadIssuesDetail(${issue.id})" class="border-t-4 rounded-sm p-3 bg-white shadow-sm space-y-3 min-h-60" style="border-color:${borderColor}">
             <div class="flex justify-between items-center">
                 <img src="${iconStatus}" alt=""> 
                 <button class="btn bg-[#FEECEC] rounded-full h-5 font-medium text-[#EF4444] text-[12px]">${issue.priority}</button>
@@ -136,7 +173,7 @@ async function openIssues() {
 }
 
 
-// closedd issues
+// closed issues
 
 // load data
 async function ClosedIssues() {
