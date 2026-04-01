@@ -59,7 +59,7 @@ function formatDate(dateString) {
 
 // -------------------------------------------------------------------------------------
 
-// Issues container started here
+// All Issues container started here
 
 async function loadIssues() {
     const response = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
@@ -77,7 +77,7 @@ async function loadIssues() {
         const div = document.createElement("div");
         div.innerHTML = `
 
-        <div class="border-t-4 rounded-sm p-3 bg-white shadow-sm space-y-3 min-h-60" style="border-color:${borderColor}">
+        <div onclick="my_modal_5.showModal()" class="border-t-4 rounded-sm p-3 bg-white shadow-sm space-y-3 min-h-60" style="border-color:${borderColor}">
             <div class="flex justify-between items-center">
                 <img src="${iconStatus}" alt=""> 
                 <button class="btn bg-[#FEECEC] rounded-full h-5 font-medium text-[#EF4444] text-[12px]">${issue.priority}</button>
