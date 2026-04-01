@@ -28,8 +28,8 @@
 
     <header class=" p-5 border-b-2 border-[#E9E9E9] flex justify-between ">
         <div class=" w-11/12 mx-auto logo flex items-center gap-2">
-            <img src="./assets/github-logo.png" class="w-[3%]" alt="">
-            <h2 class="font-semibold text-[#1F2937] text-[24px]">GitHub Issues Tracker</h2>
+            <img src="./assets/github-logo.png" class="w-[20%] md:w-[3%]" alt="">
+            <h2 class="font-semibold text-[#1F2937] text-[15px] md:text-[24px]">GitHub Issues Tracker</h2>
         </div>
 
         <div class="seach-bar">
@@ -40,7 +40,7 @@
                         <input id="inputSearch" class="" type="email" placeholder="Search issues..." required />
                     </label>
                 </div>
-                <button id="btnSearch" class="btn bg-[#4A00FF] text-white join-item rounded-sm"><i class="fa-solid fa-plus"></i>New
+                <button id="btnSearch" class="btn bg-[#4A00FF] text-white join-item rounded-sm text-[12px] md:text-[15px]"><i class="fa-solid fa-plus"></i>New
                     Issue</button>
             </div>
         </div>
@@ -48,7 +48,7 @@
 
 
     <!-- issues section -->
-    <section class="w-9/12 mx-auto pt-10 pb-5 ">
+    <section class="w-11/12 md:w-9/12 mx-auto pt-10 pb-5 ">
         <div class="bg-white shadow-md px-5 py-2 rounded-md">
             <button id="all-btn" onclick="loadIssues(); activeButton('all-btn')"
                 class="btn text-black hover:bg-[#4A00FF] hover:text-white w-[100px] active-btn">All</button>
@@ -69,8 +69,8 @@
 
     <!-- Container -->
 
-    <section class="w-9/12 mx-auto">
-        <div class="bg-white shadow-md px-5 py-2 rounded-md flex items-center justify-between">
+    <section class="w-11/12 md:w-9/12 mx-auto">
+        <div class="bg-white shadow-md px-5 py-2 rounded-t-md  space-y-5 md:flex items-center justify-between">
             <div class="flex items-center gap-3 ">
                 <img src="./assets/Aperture.png" alt="">
                 <div class="right">
@@ -88,7 +88,7 @@
 
     <!-- Issues Container -->
 
-    <section id="issues-container" class="bg-white shadow-sm p-10 w-9/12 mx-auto grid grid-cols-4 gap-3">
+    <section id="issues-container" class="bg-white shadow-sm p-5 md:p-10 w-11/12 md:w-9/12 mx-auto grid grid-cols-1 md:grid-cols-4 gap-3">
 
     </section>
 

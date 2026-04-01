@@ -126,7 +126,7 @@ async function loadIssues() {
 
         const div = document.createElement("div");
         div.innerHTML = `
-        <div onclick="loadIssuesDetail(${issue.id})" class="border-t-4 rounded-sm p-3 bg-white shadow-sm space-y-3 min-h-60" style="border-color:${borderColor}">
+        <div onclick="loadIssuesDetail(${issue.id})" class="border-t-4 rounded-sm p-3 bg-white shadow-sm space-y-3 min-h-60 cursor-pointer" style="border-color:${borderColor}">
             <div class="flex justify-between items-center">
                 <img src="${iconStatus}" alt=""> 
                 <button class="btn bg-[#FEECEC] rounded-full h-5 font-medium text-[#EF4444] text-[12px]">${issue.priority}</button>
@@ -167,7 +167,7 @@ async function openIssues() {
     open.forEach(issue => {
         const div = document.createElement("div");
         div.innerHTML = `
-        <div class="border-t-4 border-[#00A96E] rounded-sm p-3 bg-white shadow-sm space-y-3 min-h-60">
+        <div onclick="loadIssuesDetail(${issue.id})" class="border-t-4 border-[#00A96E] rounded-sm p-3 bg-white shadow-sm space-y-3 min-h-60 cursor-pointer">
             <div class="flex justify-between items-center">
                 <img src="./assets/OpenStatus.png" alt=""> 
                 <button class="btn bg-[#FEECEC] rounded-full h-5 font-medium text-[#EF4444] text-[12px]">${issue.priority}</button>
@@ -208,7 +208,7 @@ async function ClosedIssues() {
 
         const div = document.createElement("div");
         div.innerHTML = `
-       <div class="border-t-4 border-[#A855F7] rounded-sm p-3 bg-white shadow-sm space-y-3 min-h-60">
+       <div onclick="loadIssuesDetail(${issue.id})" class="border-t-4 border-[#A855F7] rounded-sm p-3 bg-white shadow-sm space-y-3 min-h-60 cursor-pointer">
             <div class="flex justify-between items-center">
                 <img src="./assets/./ClosedStatus.png" alt="">
                 <button
