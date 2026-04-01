@@ -35,6 +35,17 @@ const createElement = (arr) => {
 };
 
 
+// ManageSpinner
+const manageSpinner = (status) => {
+    if (status === true) {
+        document.getElementById("spinner").classList.remove("hidden");
+        document.getElementById("issues-container").classList.add("hidden");
+    } else {
+        document.getElementById("issues-container").classList.remove("hidden")
+        document.getElementById("spinner").classList.add("hidden")
+    }
+
+}
 
 
 // Active Button work now
@@ -100,6 +111,7 @@ const displayIssuesDetails = (issue) => {
 // All Issues container started here
 
 async function loadIssues() {
+    manageSpinner(true)
     const response = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
     const issues = await response.json();
 
@@ -131,6 +143,7 @@ async function loadIssues() {
 
         container.appendChild(div);
     });
+    manageSpinner(false);
     issuesCount(issues.data.length);
 }
 
@@ -139,6 +152,7 @@ async function loadIssues() {
 
 // load data
 async function openIssues() {
+    manageSpinner(true)
     const response = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
     const issues = await response.json();
 
@@ -168,6 +182,7 @@ async function openIssues() {
         `;
         container.appendChild(div);
     });
+    manageSpinner(false)
 
     issuesCount(open.length);
 }
@@ -177,6 +192,7 @@ async function openIssues() {
 
 // load data
 async function ClosedIssues() {
+    manageSpinner(true)
     const response = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
     const issues = await response.json();
 
@@ -209,7 +225,7 @@ async function ClosedIssues() {
 
         container.appendChild(div);
     })
-
+    manageSpinner(false)
     issuesCount(closed.length);
 }
 
@@ -225,3 +241,13 @@ function issuesCount(count) {
 
 loadIssues();
 //  activeButton("all-btn");
+
+
+
+// Search Button
+
+document.getElementById("btnSearch").addEventListener("click", ()=>{
+    const input= document.getElementById("inputSearch");
+    const searchValue= input.value;
+    console.log(searchValue);
+})

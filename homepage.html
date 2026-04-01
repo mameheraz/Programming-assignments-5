@@ -37,10 +37,10 @@
                 <div>
                     <label class="input validator join-item">
                         <i class="fa-brands fa-sistrix"></i>
-                        <input class="" type="email" placeholder="Search issues..." required />
+                        <input id="inputSearch" class="" type="email" placeholder="Search issues..." required />
                     </label>
                 </div>
-                <button class="btn bg-[#4A00FF] text-white join-item rounded-sm"><i class="fa-solid fa-plus"></i>New
+                <button id="btnSearch" class="btn bg-[#4A00FF] text-white join-item rounded-sm"><i class="fa-solid fa-plus"></i>New
                     Issue</button>
             </div>
         </div>
@@ -59,6 +59,12 @@
         </div>
     </section>
 
+
+
+    <!-- Spinner -->
+    <section id="spinner" class="flex justify-center items-center p-5 hidden">
+        <span class="loading loading-ring loading-xl"></span>
+    </section>
 
 
     <!-- Container -->
