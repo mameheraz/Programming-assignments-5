@@ -12,7 +12,7 @@ document.getElementById("login-btn").addEventListener("click", function () {
 
     if (inputValue == "admin" && passWordValue == "admin123") {
         alert("Login Success")
-        window.location.assign("/homepage.html")
+        window.location.assign("/Programming-assignments-5/homepage.html")
     } else {
         alert("Ops! Login Fail")
         return;
